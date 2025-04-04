@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi - Progress through Technology</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#e50000', secondary: '#000000' },
+                    borderRadius: { 'button': '8px' }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="sticky-nav fixed w-full z-50 transition-all duration-300 bg-transparent" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://static.readdy.ai/image/4fc2b7eaf42bf59e6095828d8792b6c0/a202d9b9de6dc574245e70f26b3c4989.png" alt="Audi Logo" class="h-12 mr-10">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-gray-300 font-medium">Home</a>
+                    <a href="#models" class="nav-link text-white hover:text-gray-300 font-medium">Models</a>
+                    <a href="#technology" class="nav-link text-white hover:text-gray-300 font-medium">Technology</a>
+                    <a href="#audi-sport" class="nav-link text-white hover:text-gray-300 font-medium">Audi Sport</a>
+                    <a href="#configurator" class="nav-link text-white hover:text-gray-300 font-medium">Configurator</a>
+                    <a href="#contact" class="nav-link text-white hover:text-gray-300 font-medium">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-white text-black px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap">
+                    <i class="ri-user-line mr-2"></i>My Audi
+                </button>
+                <div class="w-10 h-10 flex items-center justify-center md:hidden">
+                    <i class="ri-menu-line text-white ri-2x"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center">
+        <div class="container mx-auto px-6 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">Future is an attitude</h1>
+                <p class="text-xl text-white mb-8 opacity-90">Vorsprung durch Technik</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Explore Models</button>
+                    <button class="bg-transparent border-2 border-white text-white px-6 py-3 !rounded-button font-medium hover:bg-white hover:text-black transition whitespace-nowrap">Book a Test Drive</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section id="models" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Discover Our Models</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore the entire Audi lineup with our diverse range of sedans, SUVs, and electric vehicles.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="models-container"></div>
+            <div class="text-center mt-12">
+                <button class="bg-white border border-gray-300 text-gray-800 px-6 py-3 !rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap">View All Models</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Innovative Technology</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the cutting-edge technologies that define Audi's commitment to progress.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Electric Mobility</h3>
+                    <p class="text-gray-600 mb-6">Our e-tron lineup combines performance, range, and charging convenience.</p>
+                    <div class="bg-white p-6 rounded shadow-lg mb-6">
+                        <h4 class="font-bold mb-2">Charging Performance</h4>
+                        <div class="h-64" id="charging-chart"></div>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Fast charging up to 270 kW</li>
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Intelligent route planning</li>
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Over 340,000 charging points</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">quattro All-Wheel Drive</h3>
+                    <p class="text-gray-600 mb-6">Exceptional traction and handling in all conditions.</p>
+                    <div class="bg-white p-6 rounded shadow-lg">
+                        <div class="h-64" id="performance-chart"></div>
+                    </div>
+                    <ul class="space-y-3 mt-6">
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Dynamic torque distribution</li>
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Enhanced stability</li>
+                        <li class="flex items-start"><i class="ri-check-line text-primary mr-3 mt-1"></i>Improved performance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audi Sport Section -->
+    <section id="audi-sport" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Audi Sport</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Experience the thrill of Audi Sport.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold mb-4">Performance Redefined</h3>
+                    <p class="text-gray-600 mb-6">Exhilarating driving experiences without compromise.</p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 p-6 rounded shadow-lg text-center">
+                            <div class="text-4xl font-bold text-primary mb-2 count-up" data-target="3.1">0</div>
+                            <p class="text-gray-600">0-60 mph (seconds)</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded shadow-lg text-center">
+                            <div class="text-4xl font-bold text-primary mb-2 count-up" data-target="637">0</div>
+                            <p class="text-gray-600">Horsepower</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded shadow-lg text-center">
+                            <div class="text-4xl font-bold text-primary mb-2 count-up" data-target="155">0</div>
+                            <p class="text-gray-600">Top Speed (mph)</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded shadow-lg text-center">
+                            <div class="text-4xl font-bold text-primary mb-2 count-up" data-target="590">0</div>
+                            <p class="text-gray-600">Torque (lb-ft)</p>
+                        </div>
+                    </div>
+                    <button class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Explore Audi Sport Models</button>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="relative h-96 rounded overflow-hidden shadow-xl">
+                        <img src="https://public.readdy.ai/ai/img_res/569f83f930c7507fc34562ff1913fce6.jpg" alt="Audi Sport" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <div class="w-20 h-20 flex items-center justify-center bg-primary rounded-full cursor-pointer hover:bg-red-700 transition">
+                                <i class="ri-play-fill text-white ri-2x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Configurator Section -->
+    <section id="configurator" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Build Your Audi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Customize your perfect Audi.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-6">Audi e-tron GT</h3>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Exterior Color</label>
+                            <div class="flex space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-gray-800 border-2 border-primary cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-red-600 border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-blue-700 border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 cursor-pointer"></div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Wheels</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="border-2 border-primary p-2 rounded cursor-pointer">
+                                    <img src="https://public.readdy.ai/ai/img_res/7b77ef3db671297910595dc53e9feef2.jpg" alt="20-inch wheels" class="w-full">
+                                    <p class="text-xs text-center mt-1">20" 5-spoke</p>
+                                </div>
+                                <div class="border-2 border-gray-200 p-2 rounded cursor-pointer">
+                                    <img src="https://public.readdy.ai/ai/img_res/ecc26af7335b3e1ae23c027e77340098.jpg" alt="21-inch wheels" class="w-full">
+                                    <p class="text-xs text-center mt-1">21" Multi-spoke</p>
+                                </div>
+                                <div class="border-2 border-gray-200 p-2 rounded cursor-pointer">
+                                    <img src="https://public.readdy.ai/ai/img_res/5f67cead529b2fb12cceec3c06d2e0fc.jpg" alt="21-inch Y-spoke" class="w-full">
+                                    <p class="text-xs text-center mt-1">21" Y-spoke</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Performance Package</label>
+                            <div class="flex items-center mb-3">
+                                <input type="checkbox" id="performance" class="custom-checkbox">
+                                <label for="performance" class="custom-checkbox-label">Performance Package</label>
+                            </div>
+                            <p class="text-sm text-gray-500 ml-7">Includes sport suspension, enhanced brakes</p>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Technology Package</label>
+                            <div class="flex items-center mb-3">
+                                <input type="checkbox" id="technology" class="custom-checkbox" checked>
+                                <label for="technology" class="custom-checkbox-label">Technology Package</label>
+                            </div>
+                            <p class="text-sm text-gray-500 ml-7">Includes Bang & Olufsen sound system</p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200">
+                            <div class="flex justify-between mb-2"><span class="font-medium">Base Price:</span><span>$104,900</span></div>
+                            <div class="flex justify-between mb-2"><span class="font-medium">Options:</span><span>$12,450</span></div>
+                            <div class="flex justify-between text-xl font-bold"><span>Total:</span><span>$117,350</span></div>
+                            <div class="mt-6">
+                                <button class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Save Configuration</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-8 flex items-center justify-center">
+                        <img src="https://public.readdy.ai/ai/img_res/431b902f9ecab3d0a75a33f4ca5978fb.jpg" alt="Audi e-tron GT Configurator" class="max-w-full max-h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from Audi owners about their experiences.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"My Audi e-tron GT is the perfect blend of luxury and performance."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div><h4 class="font-bold">Michael Richardson</h4><p class="text-sm text-gray-500">e-tron GT Owner</p></div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The Q8 e-tron has transformed my daily commute."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div><h4 class="font-bold">Jennifer Lawson</h4><p class="text-sm text-gray-500">Q8 e-tron Owner</p></div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-primary"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i></div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The RS7 Sportback is a beast on the road."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div><h4 class="font-bold">David Thompson</h4><p class="text-sm text-gray-500">RS7 Sportback Owner</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions? Get in touch with our team.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <form class="bg-white p-8 rounded shadow-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-6">
+                            <label for="interest" class="block text-gray-700 font-medium mb-2">I'm interested in</label>
+                            <div class="relative">
+                                <select id="interest" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-primary appearance-none pr-8">
+                                    <option>Test Drive</option>
+                                    <option>Vehicle Information</option>
+                                    <option>Financing Options</option>
+                                    <option>Service Appointment</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none"><i class="ri-arrow-down-s-line"></i></div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:border-primary" placeholder="Tell us how we can help"></textarea>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="privacy" class="custom-checkbox" checked>
+                                <label for="privacy" class="custom-checkbox-label">I agree to the privacy policy</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-red-700 transition whitespace-nowrap">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <div class="bg-white p-8 rounded shadow-lg mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Newsletter</h3>
+                        <p class="text-gray-600 mb-6">Stay up to date with the latest news and offers.</p>
+                        <div class="flex">
+                            <input type="email" class="flex-1 px-4 py-3 border border-gray-300 rounded-l focus:outline-none focus:border-primary" placeholder="Enter your email">
+                            <button class="bg-primary text-white px-6 py-3 rounded-r font-medium hover:bg-red-700 transition whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded shadow-lg">
+                        <h3 class="text-2xl font-bold mb-4">Find a Dealer</h3>
+                        <p class="text-gray-600 mb-6">Visit your nearest Audi dealership.</p>
+                        <div class="h-64 w-full rounded overflow-hidden mb-6">
+                            <div class="h-full w-full" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-position: center; background-size: cover;"></div>
+                        </div>
+                        <button class="w-full bg-white border border-gray-300 text-gray-800 px-6 py-3 !rounded-button font-medium hover:bg-gray-100 transition whitespace-nowrap"><i class="ri-map-pin-line mr-2"></i>Find Nearest Dealer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4"><img src="https://static.readdy.ai/image/4fc2b7eaf42bf59e6095828d8792b6c0/a202d9b9de6dc574245e70f26b3c4989.png" alt="Audi Logo" class="h-8"></h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Press</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Investor Relations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Models</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Electric Models</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Sedans & Sportbacks</a></li>
+                        <li><a href="#" class="hover:text-primary transition">SUVs & Wagons</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Audi Sport</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Future Models</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Financial Services</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Service & Maintenance</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Warranty</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Roadside Assistance</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Accessories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Find a Dealer</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Book a Test Drive</a></li>
+                        <li><a href="#" class="hover:text-primary transition">Newsletter</a></li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"><i class="ri-facebook-fill"></i></a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"><i class="ri-twitter-x-fill"></i></a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"><i class="ri-instagram-fill"></i></a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition"><i class="ri-youtube-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0"><p>&copy; 2025 Audi AG. All rights reserved.</p></div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="text-sm hover:text-primary transition">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:text-primary transition">Terms of Use</a>
+                    <a href="#" class="text-sm hover:text-primary transition">Cookie Settings</a>
+                    <a href="#" class="text-sm hover:text-primary transition">Accessibility</a>
+                    <a href="#" class="text-sm hover:text-primary transition">Legal</a>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center">
+                    <div class="flex items-center mr-4">
+                        <label class="mr-2 text-sm">Dark Mode</label>
+                        <label class="toggle-switch"><input type="checkbox"><span class="toggle-slider"></span></label>
+                    </div>
+                    <div class="relative">
+                        <select class="bg-gray-800 border border-gray-700 text-white px-3 py-1 rounded appearance-none pr-8 focus:outline-none focus:border-primary">
+                            <option>English</option>
+                            <option>Deutsch</option>
+                            <option>Français</option>
+                            <option>Español</option>
+                            <option>Italiano</option>
+                        </select>
+                        <div class="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none"><i class="ri-arrow-down-s-line"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <script src="/main.js"></script>
+    <script src="/charts.js"></script>
+</body>
+</html>
